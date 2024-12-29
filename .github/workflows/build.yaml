@@ -6,7 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    working-directory: ./next
     strategy:
       matrix:
         node-version: [18, 20]
@@ -30,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: nextjs-build-${{ matrix.node-version }}
-          path: .next
+          path: /.next
 
