@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx -y modern-web-guidance@latest search \"update tailwind css v4 next.js app router dark mode CSS custom properties\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx -y modern-web-guidance@latest search \"tailwind v4 CSS import upgrade migration\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx -y modern-web-guidance@latest retrieve \"css,dark-mode\" --skill-version 2026_05_16-c5e7870)"
+    ]
+  }
+}
