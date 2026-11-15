@@ -17,6 +17,13 @@ a.acme-btn--danger:hover { color: var(--acme-color-on-primary); }
 a.acme-btn--secondary:hover,
 a.acme-btn--ghost:hover { color: var(--acme-color-text); }
 
+/* Top bar at phone width: wordmark and actions share the first row, the nav
+   drops to a full-width second row and scrolls sideways if it still overflows. */
+@media (max-width: 40rem) {
+  .acme-topbar { flex-wrap: wrap; row-gap: var(--acme-space-2); }
+  .acme-topbar__nav { order: 1; flex-basis: 100%; overflow-x: auto; }
+}
+
 @theme inline {
   --color-background: var(--acme-color-canvas);
   --color-foreground: var(--acme-color-text);
