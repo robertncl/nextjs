@@ -1,30 +1,7 @@
 @import "tailwindcss";
-@import "../styles/acme/tokens.css";
-@import "../styles/acme/bundle.css";
-
-/* Fonts are self-hosted through next/font (see layout.tsx); point the
-   ACME font stacks at them. */
-:root {
-  --font-sans: var(--font-inter), "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
-  --font-display: var(--font-sans);
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, "Cascadia Code", Consolas, monospace;
-}
-
-/* ButtonLink: an <a> styled as .acme-btn keeps the button's ink on hover. */
-a.acme-btn { text-decoration: none; }
-a.acme-btn--primary:hover,
-a.acme-btn--danger:hover { color: var(--acme-color-on-primary); }
-a.acme-btn--secondary:hover,
-a.acme-btn--ghost:hover { color: var(--acme-color-text); }
-
-/* Top bar at phone width: wordmark and actions share the first row, the nav
-   drops to a full-width second row and scrolls sideways if it still overflows. */
-@media (max-width: 40rem) {
-  .acme-topbar { flex-wrap: wrap; row-gap: var(--acme-space-2); }
-  .acme-topbar__nav { order: 1; flex-basis: 100%; overflow-x: auto; }
-}
+@import "../styles/modernist.css";
 
 @theme inline {
-  --color-background: var(--acme-color-canvas);
-  --color-foreground: var(--acme-color-text);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
 }

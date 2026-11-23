@@ -1,0 +1,209 @@
+/* Modernist design system: tokens and the few patterns this app uses.
+   Values come from the system's tokens.json. Swiss style: square corners,
+   black rules instead of shadows, blue only for action and "you are here". */
+
+:root {
+  /* Colour */
+  --paper: #ffffff;
+  --paper-2: #f1f1ef;
+  --rule: #cfcfcb;
+  --ink: #111111;
+  --rule-strong: var(--ink);
+  --ink-2: #454542;
+  --ink-3: #6a6a66;
+  --blue: #1e40d8;
+  --blue-hover: #1631a8;
+  --blue-soft: #e6ebfc;
+  --on-blue: var(--paper);
+  --red: #b3170d;
+
+  /* Type: next/font sets --font-archivo and --font-jetbrains-mono */
+  --font-sans: var(--font-archivo), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, Consolas, monospace;
+
+  /* Space: 8px module, 4px only inside a control */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  /* Strokes */
+  --stroke-hair: 1px;
+  --stroke-rule: 2px;
+  --stroke-alert: 4px;
+  --stroke-bar: 8px;
+
+  /* Layout */
+  --grid-max: 1280px;
+  --grid-gutter: 24px;
+
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  border-top: var(--stroke-bar) solid var(--ink);
+}
+
+a { color: var(--blue); }
+a:hover { color: var(--blue-hover); }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Page container on the grid */
+.m-container {
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  padding-inline: var(--space-5);
+}
+@media (max-width: 40rem) {
+  .m-container { padding-inline: var(--space-3); }
+}
+
+/* Type styles */
+.m-display {
+  margin: 0;
+  font-size: clamp(44px, 9vw, 72px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.m-heading-2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.m-label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.m-lede {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--ink-2);
+}
+.m-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--paper-2);
+  padding: 2px 6px;
+}
+
+/* Header */
+.m-header { border-bottom: var(--stroke-rule) solid var(--rule-strong); }
+.m-header__inner {
+  min-height: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+}
+.m-product {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.m-product:hover { color: var(--ink); }
+.m-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Links that sit in a row: nav and footer */
+.m-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.m-link:hover { color: var(--blue); }
+.m-link[aria-current="page"] {
+  color: var(--blue);
+  box-shadow: inset 0 calc(-1 * var(--stroke-rule)) 0 var(--blue);
+}
+
+/* Section: opens with a 2px rule, no box */
+.m-section {
+  flex: 1 1 400px;
+  min-width: 0;
+  border-top: var(--stroke-rule) solid var(--rule-strong);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Numbered steps separated by hairlines */
+.m-steps { margin: 0; padding: 0; list-style: none; }
+.m-steps li {
+  display: flex;
+  gap: var(--space-4);
+  align-items: baseline;
+  padding: var(--space-3) 0;
+  border-bottom: var(--stroke-hair) solid var(--rule);
+}
+.m-steps__num {
+  min-width: 32px;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons: 44px, square, 2px ink edge; hover fills ink. One blue primary per view. */
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: var(--stroke-rule) solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: 600 14px/1 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+.m-btn:hover { background: var(--ink); color: var(--paper); }
+.m-btn--primary { background: var(--blue); border-color: var(--blue); color: var(--on-blue); }
+.m-btn--primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); color: var(--on-blue); }
+
+/* Footer */
+.m-footer { border-top: var(--stroke-rule) solid var(--rule-strong); }
+.m-footer__inner {
+  padding-block: var(--space-3) var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  font-size: 14px;
+  font-weight: 600;
+}
+.m-footer__note { margin-left: auto; }

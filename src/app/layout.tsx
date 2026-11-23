@@ -1,27 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Archivo is a variable font, so no weights are listed: 400–800 all load.
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "600"],
 });
 
-// The ACME Design System is light theme only.
+// The Modernist design system is light theme only.
 export const viewport: Viewport = {
   colorScheme: "light",
 };
 
 export const metadata: Metadata = {
   title: "Your Next.js app is ready",
-  description: "A Next.js starter built with the ACME Design System",
+  description: "A Next.js starter built with the Modernist design system",
 };
 
 export default function RootLayout({
@@ -30,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );
